@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="scripts/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="scripts/lib/bootstrap/css/bootstrap-responsive.min.css">
+
+</head>
+<body>
+
+<div class="user">
+    <script id="userTemplate" type="text/template">
+
+        <div class="media">
+            <a class="pull-left" href="#">
+                <img class="img-polaroid" src='<%= avatar_url %>' />
+            </a>
+            <div class="media-body">
+                <h2 class="media-heading"><span><%= name %></span></h2>
+                <p><i class="icon-user"></i> <%= login %></p>
+                <div><i class="icon-inbox"></i> <%= company %></div>
+                <div><i class="icon-home"></i> <%= location %></div>
+                <div><i class="icon-envelope"></i> <a href="mailto:<%= email %>"> <%= email %></a></div>
+                <div><i class="icon-globe"></i> <a href="<%= blog %>"><%= blog %></a></div>
+                <div><i class="icon-circle-arrow-right"></i> Joined on <%= this.model.joinedDate() %></div>
+            </div>
+        </div>
+
+    </script>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="scripts/lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="scripts/lib/underscore/underscore.js"></script>
+<script src="scripts/lib/backbone/backbone-min.js"></script>
+<script src="scripts/main.js"></script>
+
+</body>
+</html>

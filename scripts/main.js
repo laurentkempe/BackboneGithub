@@ -3,12 +3,19 @@
     window.Dashboard = {
         Models: {},
         Collections: {},
-        Views: {}
+        Views: {},
+        Routes: {}
     };
 
     window.template = function(id) {
         return _.template( $('#' + id).html() );
     };
+
+    Dashboard.Routes.AppRouter = Backbone.Router.extend({
+        routes: {
+            "for/:username": "forUsername"
+        }
+    });
 
     Dashboard.Models.User = Backbone.Model.extend({
         url : function(){
@@ -33,6 +40,14 @@
     });
 
     var user = new Dashboard.Models.User({username: "laurentkempe"});
+
+    var app_router = new Dashboard.Routes.AppRouter();
+    app_router.on('route:forUsername', function (username) {
+        user.set('username', username);
+    });
+
+    Backbone.history.start();
+
     var userView = new Dashboard.Views.User({model : user});
 
     user.fetch({
